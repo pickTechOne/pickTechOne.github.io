@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/07/18/Android-Studio-3-2预览版的新特性/memory-profiler-jni-heap_2x.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/18/Android-Studio-3-2预览版的新特性/java-kotlin-interop.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/18/Android-Studio-3-2预览版的新特性/project-include-nodes.png">
-<meta property="og:updated_time" content="2018-07-18T10:50:07.149Z">
+<meta property="og:updated_time" content="2018-07-18T11:04:13.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio 3.2预览版的新特性">
 <meta name="twitter:description" content="本文原文为New features in Android Studio Preview，原文更新版本为2018年5月29。由刘耀锴(liuyaokai AT jd.com，Wechat: kylelyk12)结合Google Translate进行翻译、编辑和排版。如有错漏、意见和建议，请联系译者。还望指正，谢谢。  Android Studio 3.1.2已经在稳定渠道中发布。 点此下载。 最">
@@ -314,7 +314,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T18:40:11+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T18:57:55+08:00">
                 2018-07-18
               </time>
             
@@ -388,8 +388,8 @@
 <p>要构建一个bundle包，请选择<strong>Build&gt; Build Bundle(s) / APK(s)&gt; Build Bundle(s)</strong>。</p>
 <p>有关更多信息（包括构建和分析Android App Bundle的说明），请参阅<a href="https://developer.android.com/platform/technology/app-bundle" target="_blank" rel="noopener">Android App Bundle入门</a>。</p>
 <h2 id="Layout-Editor-布局编辑器中的示例数据"><a href="#Layout-Editor-布局编辑器中的示例数据" class="headerlink" title="Layout Editor 布局编辑器中的示例数据"></a>Layout Editor 布局编辑器中的示例数据</h2><hr>
-<p>许多Android布局都在运行时才有数据填充，这使得在编码阶段，人们难以直观地查看到布局在运行时的样子。 您现在可以在布局编辑器中轻松查看填充了示例数据的布局预览。 添加View时，在Design窗口中，View下方会出现一个按钮<img src="./layout-editor-wrench.png" alt="设计视图属性按钮">。 点击此按钮可以设置设计时的视图属性。 您可以从各种示例数据模板中进行选择，并指定用于填充View的数据条数。</p>
-<p>要尝试使用示例数据，请将<em>RecyclerView</em>添加到新布局里，单击视图下方的设计视图属性按钮<img src="./layout-editor-wrench.png" alt="设计视图属性按钮">，然后选择一个示例数据模板。</p>
+<p>许多Android布局都在运行时才有数据填充，这使得在编码阶段，人们难以直观地查看到布局在运行时的样子。 您现在可以在布局编辑器中轻松查看填充了示例数据的布局预览。 添加View时，在Design窗口中，View下方会出现一个按钮<img src="/2018/07/18/Android-Studio-3-2预览版的新特性/layout-editor-wrench.png" alt="设计视图属性按钮">。 点击此按钮可以设置设计时的视图属性。 您可以从各种示例数据模板中进行选择，并指定用于填充View的数据条数。</p>
+<p>要尝试使用示例数据，请将<em>RecyclerView</em>添加到新布局里，单击视图下方的设计视图属性按钮<img src="/2018/07/18/Android-Studio-3-2预览版的新特性/layout-editor-wrench.png" alt="设计视图属性按钮">，然后选择一个示例数据模板。</p>
 <h2 id="Slices-切片（暂译）"><a href="#Slices-切片（暂译）" class="headerlink" title="Slices 切片（暂译）"></a>Slices 切片（暂译）</h2><hr>
 <p><em>Slices</em>提供了一种将Android应用程序的部分功能嵌入到其他用户界面上的新方法。 例如，Slices可以在Google搜索建议中显示应用的功能和内容。</p>
 <p>Android Studio 3.2具有的内置模板可帮助您使用新的Slice Provider API来扩展您的应用程序，还有新的lint检查可以确保在构建Slices时遵循最佳做法。</p>
@@ -404,14 +404,14 @@
 <p>点击<strong>Energy</strong>行可以最大化Energy Profiler视图。将鼠标指针放在时间线上的条形图时，可查看CPU、网络和位置（GPS）以及系统事件（如唤醒锁，警报和作业）的能源使用情况。</p>
 <h4 id="Sessions-会话"><a href="#Sessions-会话" class="headerlink" title="Sessions 会话"></a>Sessions 会话</h4><p>您现在可以将Profiler数据保存为“会话”以便稍后重新查看。 （分析器会保留会话数据直到您重新启动IDE。）</p>
 <p>通过从主菜单中选择<strong>Run &gt; Profile</strong>来运行app后，可以单击加号 + 并从下拉菜单中选择一个进程来启动一个新的会话，如下所示。</p>
-<p><img src="./animated-sessions-overview.gif" alt="选择进程来打开会话"></p>
-<p>当您<a href="https://developer.android.com/studio/profile/cpu-profiler.html#method_traces" target="_blank" rel="noopener">录制method trace方法轨迹</a>或<a href="https://developer.android.com/studio/profile/memory-profiler.html#capture-heap-dump" target="_blank" rel="noopener">捕获heap dump</a>时，IDE会将这些数据（连同app的网络活动信息）作为单个条目添加到当前会话中，并且您可以轻松地在录制数据之间来回切换以比较数据。要停止向当前会话添加数据，请单击<img src="./ic_red_stop.png" alt="停止录制"><br>。</p>
+<p><img src="/2018/07/18/Android-Studio-3-2预览版的新特性/animated-sessions-overview.gif" alt="选择进程来打开会话"></p>
+<p>当您<a href="https://developer.android.com/studio/profile/cpu-profiler.html#method_traces" target="_blank" rel="noopener">录制method trace方法轨迹</a>或<a href="https://developer.android.com/studio/profile/memory-profiler.html#capture-heap-dump" target="_blank" rel="noopener">捕获heap dump</a>时，IDE会将这些数据（连同app的网络活动信息）作为单个条目添加到当前会话中，并且您可以轻松地在录制数据之间来回切换以比较数据。要停止向当前会话添加数据，请单击<img src="/2018/07/18/Android-Studio-3-2预览版的新特性/ic_red_stop.png" alt="停止录制"><br>。</p>
 <h4 id="System-Trace-系统信息轨迹"><a href="#System-Trace-系统信息轨迹" class="headerlink" title="System Trace 系统信息轨迹"></a>System Trace 系统信息轨迹</h4><p>在<a href="https://developer.android.com/studio/profile/cpu-profiler.html" target="_blank" rel="noopener">CPU profiler分析器</a>中，选择新的<strong>System Trace系统轨迹</strong>配置以检查设备的系统CPU和线程活动。 此跟踪配置基于<a href="https://developer.android.com/studio/command-line/systrace.html" target="_blank" rel="noopener">systrace</a>构建，适用于调查系统级问题，如UI闪烁掉帧。</p>
-<p><img src="./animated-systemtrace-overview.gif" alt="录制System Trace"></p>
+<p><img src="/2018/07/18/Android-Studio-3-2预览版的新特性/animated-systemtrace-overview.gif" alt="录制System Trace"></p>
 <p>在使用这种新的轨迹配置时，您可以通过在代码中使用<a href="https://developer.android.com/reference/android/os/Trace.html" target="_blank" rel="noopener">Trace</a>类直观地在Profiler时间线中标记重要的代码行程。</p>
 <h4 id="在内存分析器Memory-Profiler中检查JNI引用"><a href="#在内存分析器Memory-Profiler中检查JNI引用" class="headerlink" title="在内存分析器Memory Profiler中检查JNI引用"></a>在内存分析器Memory Profiler中检查JNI引用</h4><p>如果您的app在Android 8.0（API级别26）或更高级别的设备上运行，则可以使用<a href="https://developer.android.com/studio/profile/memory-profiler.html" target="_blank" rel="noopener">Memory Profiler</a>检查App JNI代码的内存分配情况。</p>
 <p>在您的App在运行时，选择您想要检查的时间区间，然后从类列表上方的下拉菜单中选择JNI堆，如下所示。 然后，您可以像平常一样检查堆中的对象，并在<strong>Allocation Call Stack调用堆栈分配</strong>页中双击对象以查看JNI引用对象在您的代码中分配和释放的位置。</p>
-<p><img src="./memory-profiler-jni-heap_2x.png" alt="JNI堆中对象内存分析"></p>
+<p><img src="/2018/07/18/Android-Studio-3-2预览版的新特性/memory-profiler-jni-heap_2x.png" alt="JNI堆中对象内存分析"></p>
 <h4 id="在App启动期间记录CPU活动"><a href="#在App启动期间记录CPU活动" class="headerlink" title="在App启动期间记录CPU活动"></a>在App启动期间记录CPU活动</h4><p>您现在可以在App启动期间记录CPU活动，如下所示：</p>
 <ol>
 <li>从主菜单中选择<strong>Run &gt; Edit Configurations</strong>。</li>
@@ -437,7 +437,7 @@
 <p>Android Studio 3.2包含许多用于lint检查的新功能和改进。</p>
 <h4 id="Lint会检查Java-Kotlin的互操作性"><a href="#Lint会检查Java-Kotlin的互操作性" class="headerlink" title="Lint会检查Java/Kotlin的互操作性"></a>Lint会检查Java/Kotlin的互操作性</h4><p>为了确保您的Java代码与Kotlin代码直接拥有良好的互操作性（互相使用、修改），新的lint检查会强制执行<a href="https://android.github.io/kotlin-guides/interop.html#java-for-kotlin-consumption" target="_blank" rel="noopener">Kotlin Interop Guide互操作指南</a>中介绍的最佳实践规范。 这些检查范围将包括：Nullability注释的使用、Kotlin硬关键字、lambda参数的位置等等。</p>
 <p>要启用这些检查，请至<strong>File &gt; Preferences &gt; Editor &gt; Inspections</strong>并检查您要在<strong>Kotlin Interoperability</strong>互用性下启用的规则，如下所示。 然后，您可以通过从主菜单中选择<strong>Analyze&gt; Inspect Code</strong>运行检查。</p>
-<p><img src="./java-kotlin-interop.png" alt="Alt text"></p>
+<p><img src="/2018/07/18/Android-Studio-3-2预览版的新特性/java-kotlin-interop.png" alt="Alt text"></p>
 <p>要在使用命令行构建时，启用这些检查，请将以下内容添加到<em>build.gradle</em>文件中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    lintOptions &#123;</span><br><span class="line">        check &apos;Interoperability&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="更多lint检查"><a href="#更多lint检查" class="headerlink" title="更多lint检查"></a>更多lint检查</h4><p>除了上一节中介绍的lint对于Kotlin互操作性的检查之外，Android Studio 3.2还实现了20个新的检查，以帮助您查找和识别常见的代码问题。这些检查的范围，从潜在的使用错误的警告到高优先级安全漏洞错误都有涉及。</p>
@@ -462,7 +462,7 @@
 <h2 id="查看外部头文件"><a href="#查看外部头文件" class="headerlink" title="查看外部头文件"></a>查看外部头文件</h2><hr>
 <p>在以前版本的Android Studio中，使用<strong>Project项目</strong>视图时，只能查看和检查那些本地构建的库的头文件。 在新版本，您现在还可以查看和检查那些项目外部的C / C ++依赖库的头文件。</p>
 <p>如果您的项目中已包含C / C ++代码和库，从主菜单中选择<strong>View &gt; Tool Windows &gt; Project</strong>并选择<strong>Android</strong>，可以打开IDE左侧的<strong>Project</strong>窗口。 在<strong>cpp</strong>文件夹中，项目内的所有头文件都在每个本地C / C ++库的include节点下，如下所示。</p>
-<p><img src="./project-include-nodes.png" alt="Alt text"></p>
+<p><img src="/2018/07/18/Android-Studio-3-2预览版的新特性/project-include-nodes.png" alt="Alt text"></p>
 <h2 id="Native-Multidex将默认启用"><a href="#Native-Multidex将默认启用" class="headerlink" title="Native Multidex将默认启用"></a>Native Multidex将默认启用</h2><hr>
 <p>在Android API为21或更高版本的设备上运行Debug版本App时，之前版本的Android Studio启用了Native Multidex。 现在，无论您是在设备运行还是编译release版本的APK，对于<em>minSdkVersion = 21</em>或更高版本的所有模块，Gradle插件都会为其开启Native Multidex功能。</p>
 <h2 id="AAPT2转移到Google的Maven存储库"><a href="#AAPT2转移到Google的Maven存储库" class="headerlink" title="AAPT2转移到Google的Maven存储库"></a>AAPT2转移到Google的Maven存储库</h2><hr>
