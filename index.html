@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/Android Studio 3.2预览版的新特性/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/Android-Studio-3-2预览版的新特性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pickTechOne">
@@ -292,7 +292,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/18/Android Studio 3.2预览版的新特性/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/07/18/Android-Studio-3-2预览版的新特性/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -304,7 +304,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T18:20:45+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T18:40:11+08:00">
                 2018-07-18
               </time>
             
@@ -343,9 +343,7 @@
 
       
         
-          
-            <p>#Android Studio 3.2预览版的新特性</p>
-<hr>
+          <h1 id="Android-Studio-3-2预览版的新特性"><a href="#Android-Studio-3-2预览版的新特性" class="headerlink" title="Android Studio 3.2预览版的新特性"></a>Android Studio 3.2预览版的新特性</h1><hr>
 <blockquote>
 <p>本文原文为<a href="https://developer.android.com/studio/preview/features/" target="_blank" rel="noopener">New features in Android Studio Preview</a>，原文更新版本为2018年5月29。<br>由刘耀锴(liuyaokai AT jd.com，Wechat: kylelyk12)结合Google Translate进行翻译、编辑和排版。<br>如有错漏、意见和建议，请联系译者。还望指正，谢谢。</p>
 </blockquote>
@@ -353,153 +351,13 @@
 <p>最新的预览版本是<strong>Android Studio 3.2</strong>。 此文介绍了该预览版的新功能和相关更改。 这些新功能已在最新的金丝雀（Canary）版本中提供，但可能尚未在测试版渠道中提供。</p>
 <p>如果您在使用Android Studio的预览版本时遇到任何问题，<a href="https://developer.android.com/studio/report-bugs" target="_blank" rel="noopener">请告诉我们</a>。 您的错误报告将有助于改进Android Studio。</p>
 <p>有关发布的最新消息（包括每个发行版中重要的修复点），请参阅<a href="https://androidstudio.googleblog.com/" target="_blank" rel="noopener">更新日志</a>。</p>
-<p>##新的辅助面板</p>
-<hr>
-<p>Android Studio 3.2提供了一个新的<strong>辅助面板Assistant</strong>，可以通知您Android Studio相关的最新更新。</p>
-<p>启动Android Studio时，如果检测到有新信息，该面板将会打开并展示新信息。 您还可以通过 <strong>Help &gt; What’s new in Android Studio</strong> 来打开<strong>Assistant</strong>面板。</p>
-<p>##Android Jetpack 喷气背包</p>
-<hr>
-<p>Android Jetpack能加速Android程序开发，它通过组件、工具和指导说明来帮您去除重复的任务，使您能够更快、更轻松地构建高质量、可测试的应用。为了支持Jetpack，Android Studio更新了以下内容。更多信息请参阅<a href="https://developer.android.com/jetpack" target="_blank" rel="noopener">Jetpack文档</a>。</p>
-<p>####Navigation Editor 导航编辑器</p>
-<p>新的导航编辑器与喷气背包Jetpack中的导航组件相集成，为创建应用的导航结构提供图形视图。 导航编辑器简化了应用内页面之间跳转的设计和实现。</p>
-<p>要了解更多信息，请阅读<a href="https://developer.android.com/topic/libraries/architecture/navigation/navigation-implementing" target="_blank" rel="noopener">导航编辑器文档</a>。</p>
-<p>##AndroidX 重构</p>
-<hr>
-<p>作为Jetpack的一部分，我们正在使用<em>androidx</em>命名空间，将Android支持库（Android Support Libraries）重构为新的Android扩展库。 有关更多信息，请阅读<a href="https://android-developers.googleblog.com/2018/05/hello-world-androidx.html" target="_blank" rel="noopener">AndroidX公告</a>。</p>
-<p>在Android Studio 3.2中，使用新的重构功能可以帮助您完成此重构。</p>
-<p>要将现有项目重构为AndroidX，请选择<strong>Refactor &gt; Refactor to AndroidX</strong>。 如果您使用了任何未迁移到AndroidX的Maven依赖包，Android Studio构建系统也会自动转换这些项目依赖包。</p>
-<p>Android Gradle插件提供了以下全局flag，您可在<em>gradle.properties</em>文件中设置这些标志：</p>
-<ul>
-<li><em>android.useAndroidX</em>：当设置为true时，表明使用AndroidX。如果未设置该标志，Android Studio默认其为false。</li>
-<li><em>android.enableJetifier</em>：当设置为true时，表示您希望有工具（来自Android Gradle插件）自动将现有的第三方库转换支持AndroidX的库。如果未设置该标志，Android Studio默认其为false。</li>
-</ul>
-<p>如果您还不想迁移至AndroidX，请将两个标志设置为false，或者干脆不设置。</p>
-<p>当您使用<strong>Refactor to AndroidX</strong>命令，或者创建一个minSdkVersion为“P”的新项目时，这两个标志都需要设置为true。</p>
-<p><strong>重要提示</strong>：在当前的Android Studio 3.2 Canary版本中，存在一个已知问题，它将导致在您使用<strong>创建新项目New Project</strong>时不会自动设置android.useAndroidX标志。所以，您目前需要在<em>gradle.properties</em>文件中手动设置。</p>
-<p>如果您想立即开始使用AndroidX库，并且不需要转换现有的第三方库，则可以将<em>android.useAndroidX</em>标志设置为true，并将<em>android.enableJetifier</em>标志设置为false。</p>
-<p>##Android App Bundle</p>
-<hr>
-<p><em>Android App Bundle</em>是一种新的上传格式，其中包含应用程序的所有已编译代码和资源，但会延迟APK的生成和签名。</p>
-<p>Google Play的新应用服务模型称为<em>Dynamic Delivery动态投放</em>，即使用您的App Bundle为每个用户的设备生成对应优化的APK，因此每个用户只需下载那些为了在其设备上运行app所需的代码和资源。 您不再需要构建，签名和管理多个APK，并且用户所需下载的东西更少、更优化。</p>
-<p>此外，您可以将动态功能模块添加到您的应用项目中，并将其包含在App Bundle中。 通过动态投放，用户可以根据需要下载和安装动态功能。</p>
-<p>要构建一个bundle包，请选择<strong>Build&gt; Build Bundle(s) / APK(s)&gt; Build Bundle(s)</strong>。</p>
-<p>有关更多信息（包括构建和分析Android App Bundle的说明），请参阅<a href="https://developer.android.com/platform/technology/app-bundle" target="_blank" rel="noopener">Android App Bundle入门</a>。</p>
-<p>##Layout Editor 布局编辑器中的示例数据</p>
-<hr>
-<p>许多Android布局都在运行时才有数据填充，这使得在编码阶段，人们难以直观地查看到布局在运行时的样子。 您现在可以在布局编辑器中轻松查看填充了示例数据的布局预览。 添加View时，在Design窗口中，View下方会出现一个按钮<img src="./layout-editor-wrench.png" alt="设计视图属性按钮">。 点击此按钮可以设置设计时的视图属性。 您可以从各种示例数据模板中进行选择，并指定用于填充View的数据条数。</p>
-<p>要尝试使用示例数据，请将<em>RecyclerView</em>添加到新布局里，单击视图下方的设计视图属性按钮<img src="./layout-editor-wrench.png" alt="设计视图属性按钮">，然后选择一个示例数据模板。</p>
-<p>##Slices 切片（暂译）</p>
-<hr>
-<p><em>Slices</em>提供了一种将Android应用程序的部分功能嵌入到其他用户界面上的新方法。 例如，Slices可以在Google搜索建议中显示应用的功能和内容。</p>
-<p>Android Studio 3.2具有的内置模板可帮助您使用新的Slice Provider API来扩展您的应用程序，还有新的lint检查可以确保在构建Slices时遵循最佳做法。</p>
-<p>要开始使用Slice，请右键单击项目文件夹并选择<strong> New &gt; Other &gt; Slice Provider</strong>。</p>
-<p>要了解包括如何测试切片的交互等更多信息，请阅读<a href="https://developer.android.com/guide/slices/getting-started" target="_blank" rel="noopener">Slices入门指南</a>。</p>
-<p>##IntelliJ IDEA 2018.1.1</p>
-<hr>
-<p>Android Studio IDE的核心已经通过2018.1.1版本的IntelliJ IDEA进行了改进。</p>
-<p>##Android profilers分析器</p>
-<hr>
-<p>请在Android Studio的最新版本3.2上尝试以下新的<a href="https://developer.android.com/studio/profile/android-profiler.html" target="_blank" rel="noopener">Android Profiler</a>功能。</p>
-<p>####Energy Profiler 能耗分析器<br>Energy Profiler可视化地显示应用程序的预估耗能情况。</p>
-<p>当您在Android 8.0（API 26）或更高版本的真机设备或Android模拟器上运行app时，Energy Profiler会在<strong>Profiler</strong>窗口底部显示一行新的信息。</p>
-<p>点击<strong>Energy</strong>行可以最大化Energy Profiler视图。将鼠标指针放在时间线上的条形图时，可查看CPU、网络和位置（GPS）以及系统事件（如唤醒锁，警报和作业）的能源使用情况。</p>
-<p>####Sessions 会话<br>您现在可以将Profiler数据保存为“会话”以便稍后重新查看。 （分析器会保留会话数据直到您重新启动IDE。）</p>
-<p>通过从主菜单中选择<strong>Run &gt; Profile</strong>来运行app后，可以单击加号 + 并从下拉菜单中选择一个进程来启动一个新的会话，如下所示。</p>
-<p><img src="./animated-sessions-overview.gif" alt="选择进程来打开会话"></p>
-<p>当您<a href="https://developer.android.com/studio/profile/cpu-profiler.html#method_traces" target="_blank" rel="noopener">录制method trace方法轨迹</a>或<a href="https://developer.android.com/studio/profile/memory-profiler.html#capture-heap-dump" target="_blank" rel="noopener">捕获heap dump</a>时，IDE会将这些数据（连同app的网络活动信息）作为单个条目添加到当前会话中，并且您可以轻松地在录制数据之间来回切换以比较数据。要停止向当前会话添加数据，请单击<img src="./ic_red_stop.png" alt="停止录制"><br>。</p>
-<p>####System Trace 系统信息轨迹</p>
-<p>在<a href="https://developer.android.com/studio/profile/cpu-profiler.html" target="_blank" rel="noopener">CPU profiler分析器</a>中，选择新的<strong>System Trace系统轨迹</strong>配置以检查设备的系统CPU和线程活动。 此跟踪配置基于<a href="https://developer.android.com/studio/command-line/systrace.html" target="_blank" rel="noopener">systrace</a>构建，适用于调查系统级问题，如UI闪烁掉帧。</p>
-<p><img src="./animated-systemtrace-overview.gif" alt="录制System Trace"></p>
-<p>在使用这种新的轨迹配置时，您可以通过在代码中使用<a href="https://developer.android.com/reference/android/os/Trace.html" target="_blank" rel="noopener">Trace</a>类直观地在Profiler时间线中标记重要的代码行程。</p>
-<p>####在内存分析器Memory Profiler中检查JNI引用</p>
-<p>如果您的app在Android 8.0（API级别26）或更高级别的设备上运行，则可以使用<a href="https://developer.android.com/studio/profile/memory-profiler.html" target="_blank" rel="noopener">Memory Profiler</a>检查App JNI代码的内存分配情况。</p>
-<p>在您的App在运行时，选择您想要检查的时间区间，然后从类列表上方的下拉菜单中选择JNI堆，如下所示。 然后，您可以像平常一样检查堆中的对象，并在<strong>Allocation Call Stack调用堆栈分配</strong>页中双击对象以查看JNI引用对象在您的代码中分配和释放的位置。</p>
-<p><img src="./memory-profiler-jni-heap_2x.png" alt="JNI堆中对象内存分析"></p>
-<p>####在App启动期间记录CPU活动</p>
-<p>您现在可以在App启动期间记录CPU活动，如下所示：</p>
-<ol>
-<li>从主菜单中选择<strong>Run &gt; Edit Configurations</strong>。</li>
-<li>在所需运行配置的<strong>Profiling性能分析</strong>选项卡下，选中<strong>Start recording a method trace on startup 启动时记录方法轨迹</strong>。</li>
-<li>从下拉菜单中选择要使用的CPU记录配置。</li>
-<li>选择<strong>Run &gt; Profile</strong>将应用程序部署到Android 8.0（API级别26）或更高版本的设备上。</li>
-</ol>
-<p>####导出CPU跟踪</p>
-<p>在使用CPU分析器记录CPU活动后，可以将数据导出为<em>.trace</em>文件以与其他人共享或者留作以后检查。</p>
-<p>要导出trace文件，请执行以下操作：</p>
-<ol>
-<li>右键单击CPU时间轴以导出对应区域的记录。</li>
-<li>从下拉菜单中选择<strong>Export trace导出轨迹</strong>。</li>
-<li>选择要保存文件的位置，然后单击<strong>Save保存</strong>。</li>
-</ol>
-<p>####导入并检查CPU trace文件</p>
-<p>使用<a href="https://developer.android.com/reference/android/os/Debug" target="_blank" rel="noopener">Debug API</a>或<a href="https://developer.android.com/studio/profile/cpu-profiler#method_traces" target="_blank" rel="noopener">CPU profiler</a>创建.trace文件后，可以导入并检查。 （目前，您不能导入System Trace recordings系统跟踪记录。）</p>
-<p>要导入您的trace文件，单击Profiler的<strong>Sessions</strong>窗口中的<strong>Start new profiler session +</strong>，然后选择<strong>Load from file从文件加载</strong>。然后，您可以在CPU分析器中检查其数据，其操作类似于其他检查操作，但有一些例外情况：</p>
-<ul>
-<li>CPU活动不是沿着CPU时间轴表示的。</li>
-<li>线程活动时间线仅表示每个线程可用的跟踪数据的位置，而不是实际的线程状态（如正在运行、正在等待或正在休眠）。</li>
-</ul>
-<p>####使用调试API记录CPU活动<br>您现在可以通过<a href="https://developer.android.com/reference/android/os/Debug" target="_blank" rel="noopener">调试API</a>，来让CPU分析器启动和停止记录CPU活动。设备运行App后，当调用<a href="https://developer.android.com/reference/android/os/Debug#startMethodTracing%28java.lang.String%29" target="_blank" rel="noopener">startMethodTracing(String tracePath)</a>时，分析器会自动开始记录CPU活动，当调用<a href="https://developer.android.com/reference/android/os/Debug#stopMethodTracing%28%29" target="_blank" rel="noopener">stopMethodTracing()</a>时，分析器停止记录。在记录使用此API触发的记录CPU活动时，CPU分析器将调试API选定为CPU记录配置。</p>
-<p>##Lint检查</p>
-<hr>
-<p>Android Studio 3.2包含许多用于lint检查的新功能和改进。</p>
-<p>####Lint会检查Java/Kotlin的互操作性</p>
-<p>为了确保您的Java代码与Kotlin代码直接拥有良好的互操作性（互相使用、修改），新的lint检查会强制执行<a href="https://android.github.io/kotlin-guides/interop.html#java-for-kotlin-consumption" target="_blank" rel="noopener">Kotlin Interop Guide互操作指南</a>中介绍的最佳实践规范。 这些检查范围将包括：Nullability注释的使用、Kotlin硬关键字、lambda参数的位置等等。</p>
-<p>要启用这些检查，请至<strong>File &gt; Preferences &gt; Editor &gt; Inspections</strong>并检查您要在<strong>Kotlin Interoperability</strong>互用性下启用的规则，如下所示。 然后，您可以通过从主菜单中选择<strong>Analyze&gt; Inspect Code</strong>运行检查。</p>
-<p><img src="./java-kotlin-interop.png" alt="Alt text"></p>
-<p>要在使用命令行构建时，启用这些检查，请将以下内容添加到<em>build.gradle</em>文件中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    lintOptions &#123;</span><br><span class="line">        check &apos;Interoperability&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>####更多lint检查</p>
-<p>除了上一节中介绍的lint对于Kotlin互操作性的检查之外，Android Studio 3.2还实现了20个新的检查，以帮助您查找和识别常见的代码问题。这些检查的范围，从潜在的使用错误的警告到高优先级安全漏洞错误都有涉及。</p>
-<p>####新的Gradle目标</p>
-<p>使用新的Gradle任务<em>lintFix</em>，可直接按照lint对于源码给出的<em>safe安全</em>修改建议进行全局修改。比如<em>SyntheticAccessor</em>就是其中一种安全修改的lint检查。</p>
-<p>####Metadata元数据更新</p>
-<p>已更新各种Metadata元数据（如服务转换检查），使lint检查能在Android P开发者预览版上使用。</p>
-<p>####如果在新版本上运行Lint，则会发出警告<br>现在，Lint会保存正在使用的基准值对应的variant变体和版本，如果您运行了一个不同的变体，lint则会发出警告。（译者注：即不同构建变体可能需要对应不同规则的lint）</p>
-<p>####Lint检查的一些改进<br>Android Studio 3.2包含了关于现有lint检查的许多改进。例如，资源循环检查现在可适用于其他的资源类型，翻译检测器则可以在编辑器中实时发现缺少翻译的问题。</p>
-<p>####问题ID更明显<br>问题ID现在会显示在更多的位置上，包括显示在<strong>Inspection Results 检查结果</strong>窗口中，这使您可以更轻松地找相关信息，并通过<em>build.gradle</em>中的<em>lintOptions</em>选项启用或禁用其检查功能。</p>
-<p>有关更多信息，请参阅<a href="https://developer.android.com/studio/write/lint#gradle" target="_blank" rel="noopener">通过Gradle配置Lint选项</a>。</p>
-<p>##Data Binding V2</p>
-<hr>
-<p>Data Binding V2现在默认启用并且与V1相兼容， 所以使用Data Binding V2的工程可以使用V1编译的依赖库。 但是请注意，使用V1的工程无法使用通过V2编译的依赖</p>
-<p>##D8编译器的Desugaring</p>
-<hr>
-<p>在Android Studio 3.1中，我们将desugaring作为实验性功能整合到了D8工具中，（译者注：Desugaring是将语法糖转换为编译器可以更高效处理的形式的一种特性），从而缩短了整体编译时间。 现在，在Android Studio 3.2中，D8会默认打开。</p>
-<p>##新的代码优化器</p>
-<hr>
-<p>R8是一种替代ProGuard用来压缩代码和混淆的新工具。 您可以通过在项目的<em>gradle.properties</em>文件中输入以下内容来使用R8的预览版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.enableR8 = true</span><br></pre></td></tr></table></figure>
-<p>##ABI平台编译不同APK的变化</p>
-<hr>
-<p>默认情况下，<a href="https://developer.android.com/studio/build/configure-apk-splits.html" target="_blank" rel="noopener">构建多个使用不同ABI的APK</a>时，插件不再默认地为以下的ABI平台生成APK：<em>mips</em>、<em>mips64</em>和<em>armeabi</em>。</p>
-<p>如果您想构建这些ABI平台的APK，则必须使用<a href="https://developer.android.com/ndk/downloads/revision_history.html" target="_blank" rel="noopener">NDK r16b或更低版本</a>，并在<em>build.gradle</em>文件中指定ABI，如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">splits &#123;</span><br><span class="line">	    abi &#123;</span><br><span class="line">	        include &apos;armeabi&apos;, &apos;mips&apos;, &apos;mips64&apos;</span><br><span class="line">	        ...</span><br><span class="line">	    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>※注意</strong>：此改动在Android Studio 3.1 RC1和更高版本中也有。</p>
-<p>##查看外部头文件</p>
-<hr>
-<p>在以前版本的Android Studio中，使用<strong>Project项目</strong>视图时，只能查看和检查那些本地构建的库的头文件。 在新版本，您现在还可以查看和检查那些项目外部的C / C ++依赖库的头文件。</p>
-<p>如果您的项目中已包含C / C ++代码和库，从主菜单中选择<strong>View &gt; Tool Windows &gt; Project</strong>并选择<strong>Android</strong>，可以打开IDE左侧的<strong>Project</strong>窗口。 在<strong>cpp</strong>文件夹中，项目内的所有头文件都在每个本地C / C ++库的include节点下，如下所示。</p>
-<p><img src="./project-include-nodes.png" alt="Alt text"></p>
-<p>##Native Multidex将默认启用</p>
-<hr>
-<p>在Android API为21或更高版本的设备上运行Debug版本App时，之前版本的Android Studio启用了Native Multidex。 现在，无论您是在设备运行还是编译release版本的APK，对于<em>minSdkVersion = 21</em>或更高版本的所有模块，Gradle插件都会为其开启Native Multidex功能。</p>
-<p>##AAPT2转移到Google的Maven存储库</p>
-<hr>
-<p>从Android Studio 3.2 Canary 11开始，AAPT2（Android Asset Packaging Tool 2）的源码是从Google的Maven库拉取的。</p>
-<p>要使用AAPT2，请确保您的<em>build.gradle</em>文件中具有<em>google()</em>的依赖，如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">      repositories &#123;</span><br><span class="line">          google() // here</span><br><span class="line">          jcenter()</span><br><span class="line">      &#125;</span><br><span class="line">      dependencies &#123;</span><br><span class="line">          classpath &apos;com.android.tools.build:gradle:3.2.0-alpha12&apos;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125; allprojects &#123;</span><br><span class="line">      repositories &#123;</span><br><span class="line">          google() // and here</span><br><span class="line">          jcenter()</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>AAPT2作为新版本修复了许多错误，其中对在Windows中非ASCII码字符的处理做了改进。</p>
-<p>##ADB连接助手</p>
-<hr>
-<p>新的ADB连接助手提供了分步说明，以帮助您通过<em>Android Debug Bridge调试桥</em>（ADB）连接和使用设备。</p>
-<p>要启动助理，请选择<strong>Tools &gt; Connection Assistant</strong>。</p>
-<p><strong>Assistant辅助</strong>面板的一系列页面中，ADB连接助手会显示说明指南、上下文控制以及连接的设备列表这些信息。</p>
-<p>##模拟器的改进</p>
-<hr>
-<p>您现在可以随时在Android模拟器中保存和加载AVD（Android虚拟设备）的快照snapshot，因此可以快速轻松地将模拟器返回到已知状态，从而进行测试。 当您使用AVD管理器来编辑AVD时，您可以指定在AVD启动时加载哪个AVD快照。</p>
-<p>在模拟器<strong>Extended controls扩展控件</strong>窗口的<strong>Snapshots快照</strong>选项卡中，可以保存、加载和管理AVD快照。</p>
-<p>有关详细信息，请参阅<a href="https://androidstudio.googleblog.com/2018/05/emulator-2730-canary-2728-beta.html" target="_blank" rel="noopener">Android模拟器27.3.0 Canary发布说明</a>。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/18/Android-Studio-3-2预览版的新特性/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
