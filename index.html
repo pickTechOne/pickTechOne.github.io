@@ -316,6 +316,251 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/03/IDEA-Android-Studio插件开发相关介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pickTechOne">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="picktechone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/03/IDEA-Android-Studio插件开发相关介绍/" itemprop="url">
+                  Studio插件开发相关介绍
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-03 09:55:57 / 修改时间：11:36:30" itemprop="dateCreated datePublished" datetime="2018-09-03T09:55:57+08:00">2018-09-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/03/IDEA-Android-Studio插件开发相关介绍/" class="leancloud_visitors" data-flag-title="Studio插件开发相关介绍">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>是否曾经被ide重复繁琐的操作所困扰，又或者没有心仪的UI控件而难受。那么请阅读这篇文章，掌握idea插件的开发流程，开发属于自己的插件，造福开源社区。<br>开发前请做好相关准备工作：</p>
+<ul>
+<li><p>安装Java SDK什么的……不做解释   </p>
+</li>
+<li><p>掌握Java语言，最好会Kotlin，因为IDEA已经有一部分用Kotlin改写了   </p>
+</li>
+<li><p>下载IDEA社区版（Community）并安装，Android Studio插件开发同样需要下载IDEA，因为Android Studio基于IDEA并且精简掉了插件开发包<br>地址 <a href="https://www.jetbrains.com/idea/download" target="_blank" rel="noopener">https://www.jetbrains.com/idea/download</a><br>下载分为发行和社区版，因为社区版是开源的，所以用这个（后续需要看源码）</p>
+</li>
+<li><p>下载或clone IDEA的社区版源码<br>地址 <a href="https://github.com/JetBrains/intellij-community" target="_blank" rel="noopener">https://github.com/JetBrains/intellij-community</a></p>
+</li>
+<li><p>打开IDEA SDK的官方文档<del>（要知道啃了几天源码突然才知道原来有文档这是事实是很崩溃的）</del><br>地址 <a href="http://www.jetbrains.org/intellij/sdk/docs" target="_blank" rel="noopener">http://www.jetbrains.org/intellij/sdk/docs</a></p>
+</li>
+</ul>
+<h4 id="入门篇"><a href="#入门篇" class="headerlink" title="入门篇"></a>入门篇</h4><p>都准备好了，那就进入正题</p>
+<h5 id="一-创建新的插件项目"><a href="#一-创建新的插件项目" class="headerlink" title="一.创建新的插件项目"></a>一.创建新的插件项目</h5><p><img src="https://upload-images.jianshu.io/upload_images/6128483-f0b20f5c73b7f806.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>类型就选择IntelliJ Platform Plugin，然后一直下一步  </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6128483-c463b41f8549245f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建之后的项目列表"></p>
+<h5 id="二-新建一个Action"><a href="#二-新建一个Action" class="headerlink" title="二.新建一个Action"></a>二.新建一个Action</h5><p>先在src文件夹建个packge，取名随意，在packge里新建action<br><img src="https://upload-images.jianshu.io/upload_images/6128483-4a80d4d92319f35d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="https://upload-images.jianshu.io/upload_images/6128483-5051e3c27b45a034.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>需要填4个内容和选择一个Groups，分别是</p>
+<blockquote>
+<p>Action ID    ：action的唯一标识，建议 包名.类名<br>Class Name   ：创建的Action类名<br>Name         ：action显示的文字<br>Description  ：描述<br>Groups       ：插件属于哪部分，可以定位插件的显示位置</p>
+</blockquote>
+<p>ok之后，plugin.xml会自动加入刚刚创建的action</p>
+<pre><code>&lt;actions&gt;  
+  &lt;!-- Add your actions here --&gt;   
+  &lt;action id=&quot;xxx&quot; class=&quot;xxx&quot; text=&quot;xxx&quot;&gt;  
+    &lt;add-to-group group-id=&quot;xxx&quot; anchor=&quot;last&quot;/&gt;  
+  &lt;/action&gt;  
+&lt;/actions&gt;  
+</code></pre><p>anchor代表插件相对于组的位置的位置，有以下几种</p>
+<blockquote>
+<p>first：放在最前面<br>last：放在最后<br>before：放在relative-to-action属性指定的ID的前面<br>after：放在relative-to-action属性指定的ID的后面</p>
+</blockquote>
+<p>例如本例Group ID选择了，anchor选了last</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6128483-c6012a8c16fe1c30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt=""></p>
+<p>最后插件就会在git块的这里出现<br><img src="https://upload-images.jianshu.io/upload_images/6128483-681beb7565c552a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800" alt=""></p>
+<p>运行后插件可以出现了，但这时候点击是没有反应的，进入下一步</p>
+<h5 id="三-重写public-void-actionPerformed-AnActionEvent-e-方法"><a href="#三-重写public-void-actionPerformed-AnActionEvent-e-方法" class="headerlink" title="三. 重写public void actionPerformed(AnActionEvent e)方法"></a>三. <strong>重写<code>public void actionPerformed(AnActionEvent e)</code>方法</strong></h5><p>先写个简单的hello world</p>
+<pre><code>@Override
+public void actionPerformed(AnActionEvent e) {
+  Project project=event.getProject();
+  Messages.showMessageDialog(project,&quot;hello world&quot;,&quot;mytitle&quot;,Messages.getInformationIcon());
+}
+</code></pre><p>点击三角运行</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6128483-f8aad05b6d65edad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt=""></p>
+<p>正常会打开新的idea窗口，随便打开个项目找到刚才的插件位置，点击，不出意外会弹出一个hello world的提示窗口了。</p>
+<p>插件开发的过程大概如此，但是我们开发，肯定不是一个弹窗就解决需求的。由于开发需求的多样性，没法在一篇文章介绍所有api，所以在下面的部分，我将介绍IDEA开发的一些统一标准要求。</p>
+<h4 id="进阶篇"><a href="#进阶篇" class="headerlink" title="进阶篇"></a>进阶篇</h4><p>IDEA官方开发者封装了大量易用的api，由于官方文档介绍很笼统，看过了仅有的文档，只能根据要开发的插件功能，去定位官方的源码相似功能部分，然后模仿着写。下面给出的一些经验，开发过程可能有的用不到，但是一定会对你大致理解整套系统有所帮助</p>
+<h5 id="一-在event线程操作UI"><a href="#一-在event线程操作UI" class="headerlink" title="一. 在event线程操作UI"></a>一. 在event线程操作UI</h5><p>这点很多平台都有这种规定，后台线程是不能操作UI的，Android中使用的是消息Handler机制，在IDEA中也有类似的消息机制。在event线程中不要进行耗时操作（例如网络，IO），耗时操作要放在后台线程。在后台线程获取到数据后，可以使用下面方式来更新UI。（还有其他方法，这里仅介绍一种)</p>
+<pre><code>ApplicationManager.getApplication().invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                    // update UI
+           }
+    });
+</code></pre><h5 id="二-如何开启一个后台任务？"><a href="#二-如何开启一个后台任务？" class="headerlink" title="二. 如何开启一个后台任务？"></a>二. 如何开启一个后台任务？</h5><p>不仅限于此，这里介绍一种方法，可以使用ProgressManager来开启</p>
+<pre><code>ProgressManager.getInstance().XXXX(new Runnable());
+</code></pre><p><img src="https://upload-images.jianshu.io/upload_images/6128483-e434183cc4a53b57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt=""></p>
+<p>补全后可以看到很多方法，选择合适的调用即可。</p>
+<h5 id="三-如何开启进度条任务（类似于构建，ide底下会出进度条）"><a href="#三-如何开启进度条任务（类似于构建，ide底下会出进度条）" class="headerlink" title="三. 如何开启进度条任务（类似于构建，ide底下会出进度条）"></a>三. 如何开启进度条任务（类似于构建，ide底下会出进度条）</h5><p>创建自定义类<code>MyTask</code>继承于<code>Task.Backgroundable</code>，并重写run方法，run方法在后台线程执行，调用时可以如下</p>
+<pre><code>new BackgroundTaskQueue(project, &quot;my-task-name&quot;).run(new MyTask());
+</code></pre><h5 id="四-什么是虚拟文件系统VFS（VirtualFileSystem）？"><a href="#四-什么是虚拟文件系统VFS（VirtualFileSystem）？" class="headerlink" title="四. 什么是虚拟文件系统VFS（VirtualFileSystem）？"></a>四. 什么是虚拟文件系统VFS（<code>VirtualFileSystem</code>）？</h5><p>官方文档地址: <a href="http://www.jetbrains.org/intellij/sdk/docs/basics/architectural_overview/files.html" target="_blank" rel="noopener">http://www.jetbrains.org/intellij/sdk/docs/basics/architectural_overview/files.html</a><br>看代码时可能会经常看见<code>VirtualFile</code>，初次见肯定会疑惑，简单介绍一下（摘自官档）</p>
+<blockquote>
+<p>虚拟文件系统（VFS）是IntelliJ Platform的一个组件，它封装了用于处理文件的大部分活动。它有以下主要用途：</p>
+</blockquote>
+<ul>
+<li>提供用于处理文件的通用API，无论其实际位置如何（在磁盘上，存档中，在HTTP服务器上，或者git上等）</li>
+<li>在检测到修改时跟踪文件修改并提供文件内容的新旧版本。</li>
+<li>提供将附加持久数据与VFS中的文件相关联的可能性。</li>
+</ul>
+<p>看一下<code>VirtualFileSystem</code>实例的方法，大概有以下几项：<br>刷新、获取<code>VirtualFile</code>、添加监听等作用。<br><img src="https://upload-images.jianshu.io/upload_images/6128483-97f4d8bc5faa9f61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="VirtualFileSystem实例的方法"></p>
+<p>比较常用的是<code>VirtualFile</code>，看一下实例方法</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6128483-4bea7abb56075c4a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="VirtualFile实例的方法"><br><img src="https://upload-images.jianshu.io/upload_images/6128483-3bf4db71b07acb54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="VirtualFile实例的方法 续"></p>
+<p>可以看到我们常用的文件操作基本都在这里。而与之相对应的有个类叫 Document ，这两个是不同的概念，Document 只能用于文本的文档，而且对应的是实例文件。VirtualFile是虚拟的文件，既可用于文本也可用于二进制文件。  </p>
+<h5 id="五-什么是程序结构接口PSI-Program-Structure-Interface"><a href="#五-什么是程序结构接口PSI-Program-Structure-Interface" class="headerlink" title="五. 什么是程序结构接口PSI (Program Structure Interface)?"></a>五. 什么是程序结构接口PSI (<code>Program Structure Interface</code>)?</h5><blockquote>
+<p>程序结构接口，通常称为PSI，是IntelliJ平台中的一个层，负责解析文件并创建支持平台许多功能的语法和语义代码模型。(摘自官档)</p>
+</blockquote>
+<p>也就是说对特定语言语法树，符号解析等可以使用PSI，如果有此需要，可以参考<br><a href="https://www.jetbrains.org/intellij/sdk/docs/basics/architectural_overview/psi.html" target="_blank" rel="noopener">https://www.jetbrains.org/intellij/sdk/docs/basics/architectural_overview/psi.html</a></p>
+<h5 id="六-UI相关（用户界面组件）"><a href="#六-UI相关（用户界面组件）" class="headerlink" title="六. UI相关（用户界面组件）"></a>六. UI相关（用户界面组件）</h5><blockquote>
+<p>IntelliJ平台包含大量自定义Swing组件。在插件中使用这些组件将确保您的插件与IDE的其余部分的UI一致并且与其一致，并且与使用默认Swing组件相比，通常可以减少代码大小。<br>列举一些</p>
+</blockquote>
+<ul>
+<li>Tool Windows</li>
+<li>对话框 Dialogs</li>
+<li>弹出窗口 Popups</li>
+<li>通知 Notifications</li>
+<li>文件和类选择器 File and Class Choosers</li>
+<li>编辑器组件 Editor Components</li>
+<li>列表和树控件 List and Tree Controls</li>
+<li>以及其他很多很多</li>
+</ul>
+<p>可以参考<a href="http://www.jetbrains.org/intellij/sdk/docs/user_interface_components/user_interface_components.html" target="_blank" rel="noopener">http://www.jetbrains.org/intellij/sdk/docs/user_interface_components/user_interface_components.html</a></p>
+<p>总结：<br>其中VFS和PSI是众多模块中比较核心的部分，开发过程中也建议参考其他开源插件的源码，多看多想，相信读者在开发过程中会有不小的收获。</p>
+<p>参考文献：</p>
+<p><a href="https://blog.csdn.net/huachao1001/article/details/53856916" target="_blank" rel="noopener">AndroidStudio插件开发（Hello World篇） by huachao1001</a></p>
+<p><a href="http://www.jetbrains.org/intellij/sdk/docs" target="_blank" rel="noopener">IDEA官方文档</a></p>
+<p><a href="https://github.com/JetBrains/intellij-community" target="_blank" rel="noopener">IDEA社区版Github</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/Android-Studio-3-2预览版的新特性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -517,7 +762,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
